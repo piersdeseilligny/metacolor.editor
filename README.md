@@ -35,6 +35,8 @@ The tool performs a thorough analysis of the file when it is first opened, findi
 
 # Download
 
+**THIS SHOULDN'T CORRUPT YOUR PRORES FILES, BUT PLEASE USE AT YOUR OWN RISK!**
+
 **[Download .zip for Windows](https://github.com/piersdeseilligny/prores.editor/releases/download/v1.0/Windows.zip)**
 
 **[Download .app for Mac](https://github.com/piersdeseilligny/prores.editor/releases/download/v1.0/Mac.zip)**
