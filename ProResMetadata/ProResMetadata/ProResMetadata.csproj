@@ -1,0 +1,50 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	
+  <PropertyGroup>
+    <TargetFramework>netstandard1.6</TargetFramework>
+    <RootNamespace>ProResMetadata</RootNamespace>
+    <PackageVersion>1.0</PackageVersion>
+    <Title>ProResMetadata</Title>
+    <Copyright>Copyright © 2018</Copyright>
+    <Description>Description of ProResMetadata</Description>
+  </PropertyGroup>
+	
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+	
+  <ItemGroup>
+    <None Remove="Error.png" />
+    <None Remove="icon.png" />
+    <None Remove="Information.png" />
+    <None Remove="Interrogation.png" />
+    <None Remove="Ok.png" />
+    <None Remove="Warning.png" />
+  </ItemGroup>
+	
+  <ItemGroup>
+    <EmbeddedResource Include="Error.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="icon.png" />
+    <EmbeddedResource Include="Information.png" />
+    <EmbeddedResource Include="Interrogation.png" />
+    <EmbeddedResource Include="Ok.png" />
+    <EmbeddedResource Include="Warning.png" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Eto.Forms" Version="2.4.1" />
+    <PackageReference Include="Eto.Serialization.Xaml" Version="2.4.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Reference Include="System.Runtime.Serialization">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Runtime.Serialization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Xml.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  
+</Project>

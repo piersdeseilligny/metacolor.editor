@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+  </PropertyGroup>
+  <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)eto.forms/2.4.1/build/Eto.Forms.targets" Condition="Exists('$(NuGetPackageRoot)eto.forms/2.4.1/build/Eto.Forms.targets')" />
+    <Import Project="$(NuGetPackageRoot)eto.platform.mac64/2.4.1/build/Eto.Platform.Mac64.targets" Condition="Exists('$(NuGetPackageRoot)eto.platform.mac64/2.4.1/build/Eto.Platform.Mac64.targets')" />
+  </ImportGroup>
+</Project>

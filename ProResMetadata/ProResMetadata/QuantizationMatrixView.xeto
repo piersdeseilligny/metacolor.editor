@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Dialog
+	xmlns="http://schema.picoe.ca/eto.forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	Title=""
+	ClientSize="400, 350"
+	>
+  <StackLayout HorizontalContentAlignment="Stretch">
+    <Panel Padding="10">
+      <Label x:Name="title" Style="header3">Some Content</Label>
+    </Panel>
+
+    <Scrollable>
+      <StackLayout x:Name="stacker" Padding="12">
+        <StackLayout Orientation="Horizontal">
+        </StackLayout>
+      </StackLayout>
+    </Scrollable>
+  </StackLayout>
+
+</Dialog>

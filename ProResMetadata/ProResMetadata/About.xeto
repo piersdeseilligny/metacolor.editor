@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Dialog
+	xmlns="http://schema.picoe.ca/eto.forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	Title="About"
+	ClientSize="420, 280"
+	Padding="10"
+	>
+	<TableLayout>
+    <TableRow ScaleHeight="True">
+      <TableLayout>
+        <TableRow>
+          <TableCell>
+            <StackLayout>
+              <ImageView x:Name="appLogo" Height="148" Width="148">
+              </ImageView>
+            </StackLayout>
+            
+          </TableCell>
+          <TableCell ScaleWidth="True">
+            <StackLayout>
+              <Label Style="header3">ProRes Metadata Editor</Label>
+              <Label Height="6"></Label>
+              <Label Wrap="Word">This is a small utility to modify the color related data in ProRes video files. You shouldn't run into any issues, but please use at your own risk.</Label>
+              <Label Height="24"></Label>
+              <Label Style="hintlabel">If you're using this for a commercial purpose, please consider donating:</Label>
+              <LinkButton Click="Donate">Donate via PayPal</LinkButton>
+            </StackLayout>
+          </TableCell>
+        </TableRow>
+      </TableLayout>
+
+
+    </TableRow>
+    <TableRow>
+      <StackLayout HorizontalContentAlignment="Left">
+        <Label>© 2018 Piers Deseilligny</Label>
+        <Label Height="0"></Label>
+        <LinkButton Click="OpenGithub">View on GitHub</LinkButton>
+        <LinkButton Click="OpenLicense">View License</LinkButton>
+         <Label Height="6"></Label>
+        <LinkButton Click="OpenLicenses">Third-party licenses</LinkButton>
+        
+        
+          
+        
+        
+      </StackLayout>
+    </TableRow>
+
+
+    
+	</TableLayout>
+
+</Dialog>
