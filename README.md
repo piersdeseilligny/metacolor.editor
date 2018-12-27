@@ -1,6 +1,7 @@
-# ProRes.Editor
+<img src="/ProResMetadata/ProResMetadata/icon.png" width="256">
 
 ## What
+
 
 This is a tool built in .net to view and edit the metadata embedded in ProRes videos, on a frame-by-frame basis, via a simple UI.
 
@@ -22,9 +23,9 @@ The tool performs a thorough analysis of the file when it is first opened, findi
 
 # Download
 
-**[Download portable .zip for Windows]()**
+**[Download .zip for Windows](https://github.com/piersdeseilligny/prores.editor/releases/download/v1.0/Windows.zip)**
 
-**[Download .app for Mac]()**
+**[Download .app for Mac](https://github.com/piersdeseilligny/prores.editor/releases/download/v1.0/Mac.zip)**
 
 *Please note that this tool has not been tested extensively on Mac. But it should work.*
 
