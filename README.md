@@ -1,6 +1,7 @@
-# ProRes.Editor
+<img src="/ProResMetadata/ProResMetadata/icon.png" width="256">
 
 ## What
+
 
 This is a tool built in .net to view and edit the metadata embedded in ProRes videos, on a frame-by-frame basis, via a simple UI.
 
@@ -19,12 +20,26 @@ It does so with a naive byte-level analysis, which means that this application d
 
 The tool performs a thorough analysis of the file when it is first opened, finding the offset of every prores frame, and the QuickTime `colr` atom, if applicable. This may take a few seconds, depending on the size of the file and your configuration, however the replacement of the metadata is then near-instant.
 
+# Features
+
+* Replacing the color primary, transfer function, and color matrix in the quicktime `colr` atom and in every single prores frame
+
+* Replacing the "Creator ID" in the ProRes frames
+
+* Examining and comparing all available frame metadata in ProRes video.
+
+* Warning of any inconsistencies in colour metadata (This is what the "Errors" tab is for)
+
+* Batch processing multiple files
+
 
 # Download
 
-**[Download portable .zip for Windows]()**
+**THIS SHOULDN'T CORRUPT YOUR PRORES FILES, BUT PLEASE USE AT YOUR OWN RISK!**
 
-**[Download .app for Mac]()**
+**[Download .zip for Windows](https://github.com/piersdeseilligny/prores.editor/releases/download/v1.0/Windows.zip)**
+
+**[Download .app for Mac](https://github.com/piersdeseilligny/prores.editor/releases/download/v1.0/Mac.zip)**
 
 *Please note that this tool has not been tested extensively on Mac. But it should work.*
 
