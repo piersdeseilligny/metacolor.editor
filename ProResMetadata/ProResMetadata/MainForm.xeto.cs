@@ -253,6 +253,10 @@ namespace ProResMetadata
             videoGridView.DataStore = videoCollection;
             videoGridView.CellClick += VideoGridView_CellClick;
             #endregion
+
+            //Import the files included in the args
+            ProcessFiles(args.ToList());
+
         }
         private void ProRes_AnalysisProgress(object sender, float e)
         {
