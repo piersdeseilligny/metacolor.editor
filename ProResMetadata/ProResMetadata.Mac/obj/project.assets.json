@@ -4301,7 +4301,7 @@
     "version": "1.0.0",
     "restore": {
       "projectUniqueName": "C:\\Users\\piers\\source\\repos\\ProResMetadata\\ProResMetadata\\ProResMetadata.Mac\\ProResMetadata.Mac.csproj",
-      "projectName": "ProResMetadata.Mac",
+      "projectName": "ProRes.Editor",
       "projectPath": "C:\\Users\\piers\\source\\repos\\ProResMetadata\\ProResMetadata\\ProResMetadata.Mac\\ProResMetadata.Mac.csproj",
       "packagesPath": "C:\\Users\\piers\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\piers\\source\\repos\\ProResMetadata\\ProResMetadata\\ProResMetadata.Mac\\obj\\",

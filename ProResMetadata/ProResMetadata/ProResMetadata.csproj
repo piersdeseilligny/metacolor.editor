@@ -33,9 +33,9 @@
   </ItemGroup>
   
   <ItemGroup>
-    <PackageReference Include="Eto.Forms" Version="2.4.1" />
-    <PackageReference Include="Eto.Serialization.Xaml" Version="2.4.1" />
-    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="Eto.Forms" Version="2.5.0" />
+    <PackageReference Include="Eto.Serialization.Xaml" Version="2.5.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
   </ItemGroup>
   
   <ItemGroup>
