@@ -3,13 +3,15 @@
 ## What
 
 
-This is a tool built in .net to view and edit the metadata embedded in ProRes videos, on a frame-by-frame basis, via a simple UI. It can be compared to the BBC's [qtff-parameter-editor](https://github.com/bbc/qtff-parameter-editor) tool, although prores.editor uses a different approach behind the scenes, and significantly improves the user experience.
+This is a tool built in .net to view and edit the metadata embedded in ProRes and/or Quicktime video files, on a frame-by-frame basis, via a simple UI. It can be compared to the BBC's [qtff-parameter-editor](https://github.com/bbc/qtff-parameter-editor) tool, although prores.editor uses a different approach behind the scenes, and significantly improves the user experience.
+
+It is capable of modifying the metadata on any Quicktime file, regardless of codec, and on any Prores video, regardless of the container.
 
 
 ![Screenshots](https://i.imgur.com/pa4ahVC.png)
 
 ## Why
-ProRes is capable of specifying the color primary, transfer function, and color matrix to be used when viewing the file. However this information may be incorrect for a variety of reasons (Generally the tool used to encode the file was unaware or incapable of producing this data). This can result in ProRes videos being played back with inaccurate colors or post-production tools incorrectly transcoding them.
+The Quicktime container and Prores codec are capable of specifying the color primary, transfer function, and color matrix to be used when viewing the file. However this information may be incorrect for a variety of reasons (Generally the tool used to encode the file was unaware or incapable of producing this data). This can result in ProRes videos being played back with inaccurate colors or post-production tools incorrectly transcoding them.
 
 **This tool allows you to view, analyse, and modify this metadata.**
 
