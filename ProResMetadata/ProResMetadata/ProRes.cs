@@ -408,79 +408,85 @@ namespace ProResMetadata
                     feedbackCounter = 0;
                     AnalysisProgress?.Invoke(filepath, (float)stream.Position / stream.Length);
                 }
-                frameHeaderSearch.NextByte(latestbyte);
-                if (frameHeaderSearch.Matched)
+                if (FileManagement.settings.DetectFrameHeader)
                 {
-                    //A Frame header has been found
-                    framecount++;
-
-                    var frame = new Frame();
-                    stream.Position -= 8;
-                    long startpos = stream.Position;
-                    frame.Offset = stream.Position;
-                    frame.FrameSize = ToBigEndianInt(ReadBytes(stream, 4), 0);
-
-                    stream.Position += 4;
-                    frame.HeaderSize = ToBigEndianShort(ReadBytes(stream, 2), 0);
-                    frame.Version = ToBigEndianShort(ReadBytes(stream, 2), 0);
-                    frame.CreatorID = System.Text.ASCIIEncoding.ASCII.GetString(ReadBytes(stream, 4));
-                    frame.FrameWidth = ToBigEndianShort(ReadBytes(stream, 2), 0);
-                    frame.FrameHeight = ToBigEndianShort(ReadBytes(stream, 2), 0);
-
-                    byte FrameFlags = (byte)stream.ReadByte();
-                    frame.ChrominanceFactor = DoubleBitToByte(FrameFlags.GetBit(0), FrameFlags.GetBit(1));
-                    frame.FrameType = DoubleBitToByte(FrameFlags.GetBit(4), FrameFlags.GetBit(5));
-
-                    frame.IgnoredFirst = (byte)stream.ReadByte();
-                    frame.Primaries = stream.ReadByte();
-                    frame.TransferFunction = stream.ReadByte();
-                    frame.ColorMatrix = stream.ReadByte();
-
-                    byte sourceInfo = (byte)stream.ReadByte();
-                    frame.SourcePixelFormat = sourceInfo & 0x0F;
-                    frame.AlphaInfo = sourceInfo >> 4;
-
-                    byte QMatFlags = (byte)stream.ReadByte();
-                    frame.CustomLumaQuant = QMatFlags.GetBit(6);
-                    frame.CustomChromaQuant = QMatFlags.GetBit(7);
-                    frame.IgnoredSecond = (byte)stream.ReadByte();
-                    if (frame.CustomLumaQuant)
+                    frameHeaderSearch.NextByte(latestbyte);
+                    if (frameHeaderSearch.Matched)
                     {
-                        frame.QMatLuma = ReadBytes(stream, 64);
+                        //A Frame header has been found
+                        framecount++;
+
+                        var frame = new Frame();
+                        stream.Position -= 8;
+                        long startpos = stream.Position;
+                        frame.Offset = stream.Position;
+                        frame.FrameSize = ToBigEndianInt(ReadBytes(stream, 4), 0);
+
+                        stream.Position += 4;
+                        frame.HeaderSize = ToBigEndianShort(ReadBytes(stream, 2), 0);
+                        frame.Version = ToBigEndianShort(ReadBytes(stream, 2), 0);
+                        frame.CreatorID = System.Text.ASCIIEncoding.ASCII.GetString(ReadBytes(stream, 4));
+                        frame.FrameWidth = ToBigEndianShort(ReadBytes(stream, 2), 0);
+                        frame.FrameHeight = ToBigEndianShort(ReadBytes(stream, 2), 0);
+
+                        byte FrameFlags = (byte)stream.ReadByte();
+                        frame.ChrominanceFactor = DoubleBitToByte(FrameFlags.GetBit(0), FrameFlags.GetBit(1));
+                        frame.FrameType = DoubleBitToByte(FrameFlags.GetBit(4), FrameFlags.GetBit(5));
+
+                        frame.IgnoredFirst = (byte)stream.ReadByte();
+                        frame.Primaries = stream.ReadByte();
+                        frame.TransferFunction = stream.ReadByte();
+                        frame.ColorMatrix = stream.ReadByte();
+
+                        byte sourceInfo = (byte)stream.ReadByte();
+                        frame.SourcePixelFormat = sourceInfo & 0x0F;
+                        frame.AlphaInfo = sourceInfo >> 4;
+
+                        byte QMatFlags = (byte)stream.ReadByte();
+                        frame.CustomLumaQuant = QMatFlags.GetBit(6);
+                        frame.CustomChromaQuant = QMatFlags.GetBit(7);
+                        frame.IgnoredSecond = (byte)stream.ReadByte();
+                        if (frame.CustomLumaQuant)
+                        {
+                            frame.QMatLuma = ReadBytes(stream, 64);
+                        }
+                        if (frame.CustomChromaQuant)
+                        {
+                            frame.QMatChroma = ReadBytes(stream, 64);
+                        }
+                        video.Frames.Add(frame);
+                        if (optimizations && FileManagement.settings.SkipFrameContent)
+                            stream.Position = startpos + frame.FrameSize; //Skip to the end of this frame's content to avoid analyzing useless data
                     }
-                    if (frame.CustomChromaQuant)
-                    {
-                        frame.QMatChroma = ReadBytes(stream, 64);
-                    }
-                    video.Frames.Add(frame);
-                    if(optimizations && FileManagement.settings.SkipFrameContent)
-                        stream.Position = startpos + frame.FrameSize; //Skip to the end of this frame's content to avoid analyzing useless data
                 }
-                colorAtomSearch.NextByte(latestbyte);
-                if (colorAtomSearch.Matched)
+                if (FileManagement.settings.DetectColrAtom)
                 {
-                    if (video.ColorAtom != null)
-                        video.AddError("Multiple color atoms", "This file appears to contain multiple instances of the QuickTime \"colr\" atom.", DecodeError.ErrorGravity.Critical);
-                    video.ColorAtom = new ColorAtom();
-                    stream.Position -= 8;
-                    video.ColorAtom.Offset = stream.Position;
-                    video.ColorAtom.Size = ToBigEndianInt(ReadBytes(stream, 4),0);
-                    stream.Position += 4;
-                    Logger.Log("Detected color atom at offset " + video.ColorAtom.Offset);
-                    string type = System.Text.ASCIIEncoding.ASCII.GetString(ReadBytes(stream, 4));
-                    video.ColorAtom.RawColorParam = type;
-                    if (type == "nclc")
-                        video.ColorAtom.Type = ColorParameter.Video;
-                    else if (type == "prof")
-                        video.ColorAtom.Type = ColorParameter.Print;
-                    else
+                    colorAtomSearch.NextByte(latestbyte);
+                    if (colorAtomSearch.Matched)
                     {
-                        video.ColorAtom.Type = ColorParameter.Unknown;
-                        video.AddError("Unkown color parameter type", "The color parameter type in the QuickTime \"colr\" atom is unknown (" + type + ")", DecodeError.ErrorGravity.Informational);
+                        if (video.ColorAtom != null)
+                            video.AddError("Multiple color atoms", "This file appears to contain multiple instances of the QuickTime \"colr\" atom.", DecodeError.ErrorGravity.Critical);
+                        video.ColorAtom = new ColorAtom();
+                        stream.Position -= 8;
+                        video.ColorAtom.Offset = stream.Position;
+                        video.ColorAtom.Size = ToBigEndianInt(ReadBytes(stream, 4), 0);
+                        stream.Position += 4;
+                        Logger.Log("Detected color atom at offset " + video.ColorAtom.Offset);
+                        string type = System.Text.ASCIIEncoding.ASCII.GetString(ReadBytes(stream, 4));
+                        video.ColorAtom.RawColorParam = type;
+                        if (type == "nclc")
+                            video.ColorAtom.Type = ColorParameter.Video;
+                        else if (type == "prof")
+                            video.ColorAtom.Type = ColorParameter.Print;
+                        else
+                        {
+                            video.ColorAtom.Type = ColorParameter.Unknown;
+                            video.AddError("Unkown color parameter type", "The color parameter type in the QuickTime \"colr\" atom is unknown (" + type + ")", DecodeError.ErrorGravity.Informational);
+                        }
+                        video.ColorAtom.PrimariesIndex = ToBigEndianShort(ReadBytes(stream, 2), 0);
+                        video.ColorAtom.TransferFunction = ToBigEndianShort(ReadBytes(stream, 2), 0);
+                        video.ColorAtom.ColorMatrix = ToBigEndianShort(ReadBytes(stream, 2), 0);
                     }
-                    video.ColorAtom.PrimariesIndex = ToBigEndianShort(ReadBytes(stream, 2), 0);
-                    video.ColorAtom.TransferFunction = ToBigEndianShort(ReadBytes(stream, 2), 0);
-                    video.ColorAtom.ColorMatrix = ToBigEndianShort(ReadBytes(stream, 2), 0);
                 }
             }
             stream.Dispose();
