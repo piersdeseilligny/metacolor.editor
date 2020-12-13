@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form
+	xmlns="http://schema.picoe.ca/eto.forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	Title="Metacolor.Editor"
+	ClientSize="800, 560"
+  MinimumSize="600,440"
+  Resizable="True"
+  Maximizable="True"
+  Style="mainwindow"
+	>
+
+  <TableLayout x:Name="rootLayout" Style="rootLayout">
+    <TableRow>
+          <TableLayout  x:Name="fakeToolbar" Padding="12,6,12,0">
+            <TableRow>
+              <TableCell ScaleWidth="True">
+                <StackLayout Orientation="Horizontal">
+                  <Button Text="Add files" Click="AddFiles"/>
+                  <Label Width="12"/>
+                  <Button Text="Add folder" Click="AddFolder"/>
+                </StackLayout>
+              </TableCell>
+              <TableCell>
+                <StackLayout Orientation="Horizontal">
+                  <Button Text="Settings" Click="ClickSettings"/>
+                  <Label Width="12"/>
+                  <Button Text="About" Click="ClickAbout"/>
+                  <Label Width="12"/>
+                  <Button Text="Sponsor" Click="ClickSponsor"/>
+                </StackLayout>
+              </TableCell>
+            </TableRow>
+          </TableLayout>
+    </TableRow>
+    <TableRow ScaleHeight="True">
+      <TableLayout	Padding="12,12,12,0">
+        <TableRow ScaleHeight="True">
+          <TableCell ScaleWidth="True">
+                <Splitter x:Name="splitter" Orientation="Vertical" SplitterWidth="8" Position="220" Panel1MinimumSize="100" Panel2MinimumSize="100">
+                  <Splitter.Panel1>
+                    <Panel>
+                      <GridView x:Name="videoGridView" KeyDown="PressedKeyOnGrid" AllowMultipleSelection="True" DragEnter="DragEnterFile" DragDrop="DropFile" SelectedRowsChanged="SelectedRowsChanged">
+                      </GridView>
+
+                    </Panel>
+                  </Splitter.Panel1>
+                  <Splitter.Panel2>
+                    <Panel>
+                      <TabControl>
+                        <TabPage Text="Details">
+                          <Scrollable Border="None" x:Name="detailsScroller" Visible="False">
+                            <StackLayout Padding="6,8,12,12">
+                              <TableLayout>
+                                <TableRow>
+                                  <TableCell>
+                                    <StackLayout Padding="0,0,6,0">
+                                      <Label Width="160"  Style="DetailsLabel">File path</Label>
+                                      <Label  Style="DetailsLabel">Frames</Label>
+                                    </StackLayout>
+                                  </TableCell>
+                                  <TableCell>
+                                    <StackLayout Padding="6,0,0,0">
+                                      <Label Style="DetailsContent" x:Name="detailsFilePath">C:/something/somethingelse</Label>
+                                      <Label Style="DetailsContent" x:Name="detailsFrameCount">12347</Label>
+                                    </StackLayout>
+                                  </TableCell>
+                                </TableRow>
+                              </TableLayout>
+                              <Label Height="12"></Label>
+                              <Label Style="header3">QuickTime color atom:</Label>
+                              <Label x:Name="detailsColorAtomMissing" TextColor="#C73838">Missing from file</Label>
+                              <Label Height="6"></Label>
+                              <TableLayout>
+                                <TableRow>
+                                  <TableCell>
+                                    <StackLayout Padding="0,0,6,0" x:Name="detailsColorAtomLabels">
+                                      <Label Width="160"  Style="DetailsLabel">Color primary</Label>
+                                      <Label  Style="DetailsLabel">Transfer function</Label>
+                                      <Label  Style="DetailsLabel">Color matrix</Label>
+                                      <Label Height="6"></Label>
+                                      <Label Style="DetailsLabel">Color parameter:</Label>
+                                      <Label Style="DetailsLabel">Offset in bytes:</Label>
+                                    </StackLayout>
+                                  </TableCell>
+                                  <TableCell>
+                                    <StackLayout Padding="6,0,0,0" x:Name="detailsColorAtomContent">
+                                      <Label Style="DetailsContent" x:Name="detailsColorAtomPrimary">REC. 709</Label>
+                                      <Label Style="DetailsContent" x:Name="detailsColorAtomTransfer">Gamma Curve 2.2</Label>
+                                      <Label Style="DetailsContent" x:Name="detailsColorAtomMatrix">Rec.709</Label>
+                                      <Label Height="6"></Label>
+                                      <Label Style="DetailsContent" x:Name="detailsColorAtomParameter">Video [nclc]</Label>
+                                      <Label Style="DetailsContent" x:Name="detailsColorAtomOffset">327402333</Label>
+                                    </StackLayout>
+                                  </TableCell>
+
+                                </TableRow>
+                              </TableLayout>
+                              <Label Height="12"></Label>
+                              <Label Style="header3">Frames:</Label>
+                              <Label x:Name="detailsFrameMissing" TextColor="#C73838">Missing from file</Label>
+                              <TableLayout>
+                                <TableRow>
+                                  <TableCell>
+                                    <StackLayout Padding="0,0,6,0" x:Name="detailsFrameLabels">
+                                      <Label Width="160"  Style="DetailsLabel">Color primary</Label>
+                                      <Label  Style="DetailsLabel">Transfer function</Label>
+                                      <Label  Style="DetailsLabel">Color matrix</Label>
+                                      <Label Height="6"></Label>
+                                      <Label Style="DetailsLabel">Creator ID:</Label>
+                                      <Label Style="DetailsLabel">Resolution:</Label>
+                                      <Label Style="DetailsLabel">Chrominance factor:</Label>
+                                      <Label Style="DetailsLabel">Frame type:</Label>
+                                      <Label Style="DetailsLabel">Source pixel format:</Label>
+                                      <Label Style="DetailsLabel">Alpha info:</Label>
+                                      <Label Style="DetailsLabel">Custom luma quant.:</Label>
+                                      <Label Style="DetailsLabel">Custom chroma quant.:</Label>
+                                    </StackLayout>
+                                  </TableCell>
+                                  <TableCell>
+                                    <StackLayout Padding="6,0,0,0" x:Name="detailsFrameContent">
+                                      <Label Style="DetailsContent" x:Name="detailsFramePrimary">REC. 709</Label>
+                                      <Label Style="DetailsContent" x:Name="detailsFrameTransfer">Gamma Curve 2.2</Label>
+                                      <Label Style="DetailsContent" x:Name="detailsFrameMatrix">Rec.709</Label>
+                                      <Label Height="6"></Label>
+                                      <Label Style="DetailsContent" x:Name="detailsFrameCreator">arri</Label>
+                                      <Label Style="DetailsContent" x:Name="detailsFrameResolution">1920x1080</Label>
+                                      <Label Style="DetailsContent" x:Name="detailsFrameChrominanceFactor">444</Label>
+                                      <Label Style="DetailsContent" x:Name="detailsFrameType">Progressive</Label>
+                                      <Label Style="DetailsContent" x:Name="detailsFramePixelFormat">Unknown</Label>
+                                      <Label Style="DetailsContent" x:Name="detailsFrameAlphaInfo">16-bit Alpha</Label>
+                                      <LinkButton x:Name="detailsFrameLumaQuant">Show matrix</LinkButton>
+                                      <LinkButton x:Name="detailsFrameChromaQuant">Show matrix</LinkButton>
+                                    </StackLayout>
+                                  </TableCell>
+                                </TableRow>
+                              </TableLayout>
+                            </StackLayout>
+                          </Scrollable>
+                        </TabPage>
+                        <TabPage x:Name="errorTab" Text="Errors (0)">
+                          <GridView x:Name="errorList">
+                          </GridView>
+                        </TabPage>
+                        <TabPage Text="Log">
+                          <TextArea x:Name="logArea" ReadOnly="True"></TextArea>
+                        </TabPage>
+                      </TabControl>
+                    </Panel>
+                  </Splitter.Panel2>
+                </Splitter>
+          </TableCell>
+          <TableCell>
+            <TableLayout>
+              <TableRow ScaleHeight="True">
+                <StackLayout Padding="12,0,0,0" Width="288" HorizontalContentAlignment="Stretch">
+                  <TableLayout>
+                    <TableRow>
+                      <TableCell ScaleWidth="True">
+                        <Label Style="header3">Modifications</Label>
+                      </TableCell>
+                      <!--<TableCell>
+                        <Button x:Name="duplicateModifications" Style="noborderbutton" Width="24" Height="24" ToolTip="Apply properties from selected video" BackgroundColor="Transparent"/>
+                      </TableCell>-->
+                      <!--<TableCell>
+                        <Button x:Name="resetModifications" Style="noborderbutton" Width="18" Height="18" ToolTip="Reset to default" BackgroundColor="Transparent" Click="ResetModifications"/>
+                      </TableCell>-->
+                    </TableRow>
+                  </TableLayout>
+
+                  <Label Height="6"></Label>
+                  <Label>Color primaries</Label>
+                  <DropDown SelectedIndex="0" x:Name="ColorPrimaryDropDown">
+                  </DropDown>
+                  <Label Height="6"/>
+                  <Label>Transfer function</Label>
+                  <DropDown SelectedIndex="0" x:Name="TransferFunctionDropDown">
+                  </DropDown>
+                  <Label Height="6"/>
+                  <Label>Color Matrix</Label>
+                  <DropDown SelectedIndex="0" x:Name="ColorMatrixDropDown">
+                  </DropDown>
+
+                  <Label Height="24"/>
+                  <Label Visible="False">Source pixel format</Label>
+                  <DropDown Width="276" Visible="False" SelectedIndex="0" x:Name="PixelFormatDropDown">
+                  </DropDown>
+                  <Label Height="6"/>
+                  <Label>Creator ID</Label>
+                  <DropDown SelectedIndex="0" SelectedValueChanged="CreatorSelectionChanged" x:Name="CreatorIdDropDown">
+                  </DropDown>
+                  <Label Height="4"/>
+                  <TextBox Visible="False" MaxLength="4" x:Name="customCreatorField" PlaceholderText="Custom creator ID"/>
+                  <Label Height="12"/>
+                </StackLayout>
+              </TableRow>
+              <TableRow>
+                <StackLayout HorizontalContentAlignment="Stretch" Padding="12,0,0,0">
+                  <LinkButton Click="OpenProcessingOptions">Output options</LinkButton>
+                  <Label Height="6"></Label>
+                  <Button x:Name="processButton" Enabled="False" Text="PROCESS" Height="32" Click="Encode"/>
+                </StackLayout>
+              </TableRow>
+            </TableLayout>
+          </TableCell>
+        </TableRow>
+      </TableLayout>
+    </TableRow>
+    <TableRow>
+      <StackLayout Padding="0,12,0,0" HorizontalContentAlignment="Stretch" >
+        <Panel Style="StatusBar">
+        <PixelLayout x:Name="statusBarLayout" Height="24">
+        <Panel x:Name="statusBarLabels">
+          <TableLayout>
+            <TableRow>
+              <TableCell ScaleWidth="True">
+                <Label Style="StatusText" x:Name="statusLabel">Idle</Label>
+              </TableCell>
+              <TableCell>
+                <Label Style="StatusText" x:Name="warningLabel" TextColor="#C73838"></Label>
+              </TableCell>
+            </TableRow>
+          </TableLayout>
+        </Panel>
+        <ProgressBar x:Name="statusBarProgress" Visible="False" Style="StatusProgress" BackgroundColor="Transparent" Value="0" Height="4"/>
+        </PixelLayout>
+        </Panel>
+      </StackLayout>
+    </TableRow>
+  </TableLayout>
+
+</Form>

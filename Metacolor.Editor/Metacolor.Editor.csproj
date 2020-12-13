@@ -1,0 +1,47 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+  </PropertyGroup>
+	
+  <ItemGroup>
+    <None Remove="Assets\about.png" />
+    <None Remove="Assets\duplicate.png" />
+    <None Remove="Assets\Error.png" />
+    <None Remove="Assets\file.png" />
+    <None Remove="Assets\folder.png" />
+    <None Remove="Assets\icon.png" />
+    <None Remove="Assets\Information.png" />
+    <None Remove="Assets\Interrogation.png" />
+    <None Remove="Assets\Ok.png" />
+    <None Remove="Assets\reset.png" />
+    <None Remove="Assets\settings.png" />
+    <None Remove="Assets\Warning.png" />
+  </ItemGroup>
+	
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\about.png" />
+    <EmbeddedResource Include="Assets\duplicate.png" />
+    <EmbeddedResource Include="Assets\Error.png" />
+    <EmbeddedResource Include="Assets\file.png" />
+    <EmbeddedResource Include="Assets\folder.png" />
+    <EmbeddedResource Include="Assets\icon.png" />
+    <EmbeddedResource Include="Assets\Information.png" />
+    <EmbeddedResource Include="Assets\Interrogation.png" />
+    <EmbeddedResource Include="Assets\Ok.png" />
+    <EmbeddedResource Include="Assets\reset.png" />
+    <EmbeddedResource Include="Assets\settings.png" />
+    <EmbeddedResource Include="Assets\Warning.png" />
+  </ItemGroup>
+	
+  <ItemGroup>
+    <None Include="Metacolor.Editor.csproj" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Eto.Forms" Version="2.5.6" />
+    <PackageReference Include="Eto.Serialization.Xaml" Version="2.5.6" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+  
+</Project>

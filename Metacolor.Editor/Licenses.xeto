@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Dialog
+	xmlns="http://schema.picoe.ca/eto.forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	Title="Third-party Licenses"
+	ClientSize="400, 420"
+	Padding="0"
+	>
+
+  <Scrollable Border="None">
+    <StackLayout Width="380" Padding="12,12,18,12">
+      <Label>This software uses some third-party components to function correctly, covered by the following licenses:</Label>
+      <Label Height="6"></Label>
+      <LinkButton ToolTip="The framework the app is built with" Click="openeto">Eto.Forms</LinkButton>
+      <Label x:Name="etolicense" Style="hintlabel"></Label>
+      <Label Height="12"></Label>
+      <LinkButton ToolTip="Used for everything related to JSON files, such as saving and retrieving the app preferences or exporting video analysis results" Click="openjsonnet">Newtonsoft Json.NET</LinkButton>
+      <Label x:Name="jsonlicense" Style="hintlabel"></Label>
+    </StackLayout>
+  </Scrollable>
+</Dialog>
