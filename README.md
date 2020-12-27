@@ -45,13 +45,6 @@ The tool performs a thorough analysis of the file when it is first opened, findi
 
 **[Download .zip for Windows](https://github.com/piersdeseilligny/prores.editor/releases/download/v1.0/Windows.zip)**
 
-## macOS
+## macOS / Linux
 
-**[Download .app for Mac](https://github.com/piersdeseilligny/prores.editor/releases/download/v1.0/Mac.zip)**
-
-## Debian
-
-
-*Please note that this tool has not been tested extensively on Mac. But it should work.*
-
-Built with [Eto](https://github.com/picoe/Eto).
+I have not yet had time to publish binaries for macOS and Linux, however it should be relatively easy to build from source.
