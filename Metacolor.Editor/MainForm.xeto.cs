@@ -209,7 +209,9 @@ namespace Metacolor.Editor
             if (!EtoEnvironment.Platform.IsWindows)
             {
                 fakeToolbar.Visible = false;
-                var importFile = new ButtonToolItem() { Text = "Add Files", Command = new UICommands.ImportFile(this), Image = Bitmap.FromResource("Metacolor.Editor.Assets.file.png").TemplateImage() };
+                var bmpfile = Bitmap.FromResource("Metacolor.Editor.Assets.file.png").TemplateImage();
+                bmpfile.Style = "template";
+                var importFile = new ButtonToolItem() { Text = "Add Files", Command = new UICommands.ImportFile(this), Image = bmpfile.TemplateImage() };
                 var importFolder = new ButtonToolItem() { Text = "Add Folders", Command = new UICommands.ImportFolder(this), Image = Bitmap.FromResource("Metacolor.Editor.Assets.folder.png").TemplateImage() };
                 var openSettings = new ButtonToolItem() { Text = "Settings", Command = new UICommands.OpenSettings(this, Settings.SettingsTab.General), Image = Bitmap.FromResource("Metacolor.Editor.Assets.settings.png").TemplateImage() };
                 var openAbout = new ButtonToolItem() { Text = "About", Command = new UICommands.OpenAbout(this), Image = Bitmap.FromResource("Metacolor.Editor.Assets.about.png").TemplateImage() };
