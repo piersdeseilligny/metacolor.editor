@@ -12,9 +12,9 @@
   </ItemGroup>
 	
   <ItemGroup>
-    <PackageReference Include="Eto.Platform.Mac64" Version="2.5.8" />
+    <PackageReference Include="Eto.Platform.Mac64" Version="2.5.9" />
     <PackageReference Include="Packaging.Targets" Version="0.1.189" />
-    <PackageReference Include="Eto.Forms" Version="2.5.8" />
+    <PackageReference Include="Eto.Forms" Version="2.5.9" />
   </ItemGroup>
 	
 </Project>
