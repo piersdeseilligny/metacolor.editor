@@ -42,8 +42,14 @@ The tool performs a thorough analysis of the file when it is first opened, findi
 
 **[Download from the Microsoft Store (recommended)](https://www.microsoft.com/store/productId/9PLK5VZS2QN8)**
 
-**[Download .zip for Windows](https://github.com/piersdeseilligny/prores.editor/releases/download/v1.0/Windows.zip)**
+**[Download .zip for Windows](https://github.com/piersdeseilligny/metacolor.editor/releases/tag/1.0)**
 
-## macOS / Linux
+## macOS
 
-I have not yet had time to publish binaries for macOS and Linux, however it should be relatively easy to build from source.
+**[Download .zip for macOS](https://github.com/piersdeseilligny/metacolor.editor/releases/tag/1.0)**
+https://github.com/piersdeseilligny/metacolor.editor/releases/tag/1.0
+
+
+## Linux
+
+I've not had time to build and test this for Linux, but it should be fairly straightforward to build the Metacolor.Editor.Gtk project.
