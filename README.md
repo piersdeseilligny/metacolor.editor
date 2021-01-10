@@ -47,7 +47,6 @@ The tool performs a thorough analysis of the file when it is first opened, findi
 ## macOS
 
 **[Download .zip for macOS](https://github.com/piersdeseilligny/metacolor.editor/releases/tag/1.0)**
-https://github.com/piersdeseilligny/metacolor.editor/releases/tag/1.0
 
 
 ## Linux
