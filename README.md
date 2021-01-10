@@ -1,14 +1,13 @@
-<img src="/Metacolor.Editor/Assets/icon.png" width="256">
-
-## What
-
+<img align="left" width:"100" src="https://raw.githubusercontent.com/piersdeseilligny/metacolor.editor/master/Metacolor.Editor/Assets/icon.png">
 
 This is a tool built in .net to view and edit the metadata embedded in ProRes and/or Quicktime video files, on a frame-by-frame basis, via a simple UI. It can be compared to the BBC's [qtff-parameter-editor](https://github.com/bbc/qtff-parameter-editor) tool, although metacolor.editor uses a different approach behind the scenes, and significantly improves the user experience.
+
 
 It is capable of modifying the colour-related metadata on any Quicktime file, regardless of codec, and on any Prores video, regardless of the container.
 
 
-![Screenshots](https://i.imgur.com/pa4ahVC.png)
+![Screenshot](https://raw.githubusercontent.com/piersdeseilligny/metacolor.editor/master/screen1_both.png)
+![Screenshot](https://raw.githubusercontent.com/piersdeseilligny/metacolor.editor/master/screen2_both.png)
 
 ## Why
 The Quicktime container and Prores codec are capable of specifying the color primary, transfer function, and color matrix to be used when viewing the file. However this information may be incorrect for a variety of reasons (Generally the tool used to encode the file was unaware or incapable of producing this data). This can result in ProRes videos being played back with inaccurate colors or post-production tools incorrectly transcoding them.
