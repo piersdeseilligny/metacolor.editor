@@ -6,8 +6,8 @@
     <ProjectGuid>{6548E396-E04E-43CB-B7A4-B55400B72DEC}</ProjectGuid>
     <ProjectTypeGuids>{A3F8F2AB-B479-4A4A-A458-A89E7DC349F1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Metacolor.Editor.XamMac</RootNamespace>
-    <AssemblyName>Metacolor.Editor.XamMac</AssemblyName>
+    <RootNamespace>test.XamMac</RootNamespace>
+    <AssemblyName>test.XamMac</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <TargetFrameworkIdentifier>Xamarin.Mac</TargetFrameworkIdentifier>
     <MonoMacResourcePrefix>Resources</MonoMacResourcePrefix>
@@ -29,9 +29,8 @@
     <UseRefCounting>true</UseRefCounting>
     <HttpClientHandler>HttpClientHandler</HttpClientHandler>
     <LinkMode>None</LinkMode>
-    <XamMacArch>x86_64</XamMacArch>
-    <PackageSigningKey>3rd Party Mac Developer Installer</PackageSigningKey>
-    <AOTMode>None</AOTMode>
+    <XamMacArch>
+    </XamMacArch>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>false</DebugSymbols>
@@ -53,7 +52,6 @@
     <HttpClientHandler>HttpClientHandler</HttpClientHandler>
     <XamMacArch>
     </XamMacArch>
-    <AOTMode>None</AOTMode>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -61,39 +59,35 @@
     <Reference Include="Xamarin.Mac" />
   </ItemGroup>
   <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon-128.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon-128%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon-16.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon-16%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon-256.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon-256%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon-32.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon-32%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon-512.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon-512%402x.png" />
+    <ImageAsset Include="Assets.xcassets\Contents.json" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Info.plist" />
-    <None Include="Icon.icns" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Metacolor.Editor\Metacolor.Editor.csproj">
-      <Project>{39A1C69D-B329-402E-BC43-A72E369F902A}</Project>
-      <Name>Metacolor.Editor</Name>
+    <ProjectReference Include="..\test\test.csproj">
+      <Project>{C4797EA5-5905-4EF8-A4E8-CC0D3F9F60CD}</Project>
+      <Name>test</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Eto.Platform.XamMac2">
-      <Version>2.5.9</Version>
+      <Version>2.5.8</Version>
     </PackageReference>
-    <PackageReference Include="Eto.Forms">
-      <Version>2.5.9</Version>
-    </PackageReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ImageAsset Include="Media.xcassets\Contents.json" />
-    <ImageAsset Include="Media.xcassets\AppIcon.appiconset\Contents.json" />
-    <ImageAsset Include="Media.xcassets\AppIcon.appiconset\Icon-16.png" />
-    <ImageAsset Include="Media.xcassets\AppIcon.appiconset\Icon-32.png" />
-    <ImageAsset Include="Media.xcassets\AppIcon.appiconset\Icon-32-1.png" />
-    <ImageAsset Include="Media.xcassets\AppIcon.appiconset\Icon-64.png" />
-    <ImageAsset Include="Media.xcassets\AppIcon.appiconset\Icon-128.png" />
-    <ImageAsset Include="Media.xcassets\AppIcon.appiconset\Icon-256.png" />
-    <ImageAsset Include="Media.xcassets\AppIcon.appiconset\Icon-256-1.png" />
-    <ImageAsset Include="Media.xcassets\AppIcon.appiconset\Icon-512.png" />
-    <ImageAsset Include="Media.xcassets\AppIcon.appiconset\Icon-512-1.png" />
-    <ImageAsset Include="Media.xcassets\AppIcon.appiconset\Icon-1024.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
 </Project>
