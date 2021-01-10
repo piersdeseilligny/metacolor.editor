@@ -1,4 +1,4 @@
-<img align="left" width:"100" src="https://raw.githubusercontent.com/piersdeseilligny/metacolor.editor/master/Metacolor.Editor/Assets/icon.png">
+<img align="left" width="150" src="https://raw.githubusercontent.com/piersdeseilligny/metacolor.editor/master/Metacolor.Editor/Assets/icon.png">
 
 This is a tool built in .net to view and edit the metadata embedded in ProRes and/or Quicktime video files, on a frame-by-frame basis, via a simple UI. It can be compared to the BBC's [qtff-parameter-editor](https://github.com/bbc/qtff-parameter-editor) tool, although metacolor.editor uses a different approach behind the scenes, and significantly improves the user experience.
 
