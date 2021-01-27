@@ -5,6 +5,8 @@ This is a tool built in .net to view and edit the metadata embedded in ProRes an
 
 It is capable of modifying the colour-related metadata on any Quicktime file, regardless of codec, and on any Prores video, regardless of the container.
 
+[Download](https://github.com/piersdeseilligny/metacolor.editor#user-content-download)
+
 
 ![Screenshot](https://raw.githubusercontent.com/piersdeseilligny/metacolor.editor/master/screen1_both.png)
 ![Screenshot](https://raw.githubusercontent.com/piersdeseilligny/metacolor.editor/master/screen2_both.png)
@@ -42,11 +44,16 @@ The tool performs a thorough analysis of the file when it is first opened, findi
 
 **[Download from the Microsoft Store (recommended)](https://www.microsoft.com/store/productId/9PLK5VZS2QN8)**
 
-**[Download .zip for Windows](https://github.com/piersdeseilligny/metacolor.editor/releases/tag/1.0)**
+**[Download .zip for Windows](https://github.com/piersdeseilligny/metacolor.editor/releases)**
 
 ## macOS
 
-**[Download .zip for macOS](https://github.com/piersdeseilligny/metacolor.editor/releases/tag/1.0)**
+If running the application displays a message such as "You do not have permission to open the application", please try executing the command: `chmod +x `[the location of the .app]`/Contents/MacOS/Metacolor.Editor.XamMac`. 
+For example, `chmod +x /Users/johnsmith/Downloads/Metacolor.Editor.XamMac.app/Contents/MacOS/Metacolor.Editor.XamMac`.
+
+**The error *Metacolor.Editor.XamMac.app cannot be opened because the developer cannot be verified* can be resolved by simply control-clicking on the application, and selecting "Open".** (You only need to do this the first time you open it)
+
+**[Download .zip for macOS](https://github.com/piersdeseilligny/metacolor.editor/releases)**
 
 
 ## Linux
